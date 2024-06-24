@@ -29,4 +29,7 @@ public class MemberMission {
     @JoinColumn(name = "mission_id")
     private Mission mission;
 
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }

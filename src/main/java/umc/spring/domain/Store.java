@@ -1,10 +1,7 @@
 package umc.spring.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import umc.spring.domain.common.BaseEntity;
 
 import java.util.ArrayList;
@@ -13,6 +10,7 @@ import java.util.List;
 @Entity
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Store extends BaseEntity {
@@ -34,11 +32,14 @@ public class Store extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
+    @Setter
     private Region region;
 
     @OneToMany(mappedBy = "store")
     private List<Mission> missionList = new ArrayList<>();
 
-    //음식점 이미지 테이블 매핑
-
+    public void addMission(Mission mission) {
+        missionList.add(mission);
+        mission.setStore(this);
+    }
 }

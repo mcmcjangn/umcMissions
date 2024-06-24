@@ -26,6 +26,10 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
+
     //리뷰 이미지 테이블
     //사장님 답글 테이블
 }

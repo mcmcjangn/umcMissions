@@ -43,6 +43,8 @@ public enum ErrorStatus implements BaseErrorCode {
     COMMENT_INVALID(HttpStatus.BAD_REQUEST, "COMMENT4002", "댓글이 유효하지 않습니다."),
     COMMENT_DUPLICATE(HttpStatus.BAD_REQUEST, "COMMENT4003", "댓글이 중복되었습니다."),
 
+    //푸드 카테고리 에러
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD_CATEGORY4001", "푸드 카테고리가 없습니다."),
     //테스트에러
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
 
